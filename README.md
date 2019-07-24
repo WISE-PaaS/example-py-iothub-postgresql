@@ -1,9 +1,10 @@
-# Example-python-Iothub
+# Example-python-Iothub-Postgresql
 
 
-This is WIES-PaaS iothub example-code include the sso and rabbitmq service。
+This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql service。
 
 **https://wise-paas.advantech.com/en-us**
+
 
 ## Quick Start
 
@@ -17,14 +18,18 @@ This is WIES-PaaS iothub example-code include the sso and rabbitmq service。
     cf target
 
 
-open the **`manifest.yml`** and editor the application name to yours，because the appication can't duplicate。
+open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
     #cf push {application name}
-    cf push python-demo-try
+    cf push python-demo-jimmy
     
     #get the application environment
     cf env {application name} > env.json 
+
+open **`templates/index.html`**
     
+    #change this **`python-demo-jimmy`** to your **application name**
+    var ssoUrl = myUrl.replace('python-demo-jimmy', 'portal-sso');
     
 Edit the **publisher.py** `broker、port、username、password` you can find in env.json
 
@@ -43,6 +48,22 @@ open two terminal
     python publisher.py
 
 ![https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/publish.PNG](https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/publish.PNG)
+
+
+Bind PostgreSQL service instance
+
+    #cf stop application_name
+    cf stop python-demo-postgresql
+    
+    #cf bs {application_name} {service_instance_name} -c '{\"group\":\"group_name\"}' 
+    cf bs python-demo-postgresql postgresql -c '{\"group\":\"groupfamily\"}'
+    
+    #cf start {application_name}
+    cf start python-demo-postgresql
+    
+
+
+
 
 # Step By Step Tutorial
 

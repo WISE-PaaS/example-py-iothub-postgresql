@@ -1,9 +1,10 @@
-# Example-python-Iothub
+# Example-python-Iothub-Postgresql
 
 
-This is WIES-PaaS iothub example-code include the sso and rabbitmq service。
+This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql service。
 
 **https://wise-paas.advantech.com/en-us**
+
 
 ## Quick Start
 
@@ -17,14 +18,18 @@ This is WIES-PaaS iothub example-code include the sso and rabbitmq service。
     cf target
 
 
-open the **`manifest.yml`** and editor the application name to yours，because the appication can't duplicate。
+open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
     #cf push {application name}
-    cf push python-demo-postgresql
+    cf push python-demo-jimmy
     
     #get the application environment
-    cf env python-demo-postgresql > env.json 
+    cf env {application name} > env.json 
+
+open **`templates/index.html`**
     
+    #change this **`python-demo-jimmy`** to your **application name**
+    var ssoUrl = myUrl.replace('python-demo-jimmy', 'portal-sso');
     
 Edit the **publisher.py** `broker、port、username、password` you can find in env.json
 
@@ -33,10 +38,10 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 * username :"VCAP_SERVICES => p-rabbitmq => mqtt => username"
 * password: "VCAP_SERVICES => p-rabbitmq => mqtt => password"
 
-Open two terminal
+open two terminal
     
     #cf logs {application name}
-    cf logs python-demo-postgresql
+    cf logs python-demo-try
 
 .
 

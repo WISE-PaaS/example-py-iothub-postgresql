@@ -49,10 +49,13 @@ Bind PostgreSQL service instance
 
     #cf stop application_name
     cf stop python-demo-postgresql
+    
     #cf bs {application_name} {service_instance_name} -c '{\"group\":\"group_name\"}' 
     cf bs python-demo-postgresql postgresql -c '{\"group\":\"groupfamily\"}'
+    
     #cf start {application_name}
     cf start python-demo-postgresql
+    
 
 
 

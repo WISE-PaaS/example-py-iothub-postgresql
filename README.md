@@ -64,7 +64,12 @@ Bind PostgreSQL service instance
 **service_instance_name**
 ![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG)
 
+**result**
+
+![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_com.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_com.PNG)
+
 ![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_admin.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_admin.PNG)
+
 
 
 

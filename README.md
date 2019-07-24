@@ -61,6 +61,8 @@ Bind PostgreSQL service instance
     #cf start {application_name}
     cf start python-demo-postgresql
     
+**service_instance_name**
+![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG)
 
 ![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_admin.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_admin.PNG)
 

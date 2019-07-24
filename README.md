@@ -62,9 +62,10 @@ Bind PostgreSQL service instance
     cf start python-demo-postgresql
     
 
+![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_admin.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/result_admin.PNG)
 
 
 
 # Step By Step Tutorial
 
-[https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/REAMME.md](https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/REAMME.md)
+[https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/README.md](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/README.md)

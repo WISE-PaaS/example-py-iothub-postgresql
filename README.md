@@ -20,10 +20,10 @@ This is WIES-PaaS iothub example-code include the sso and rabbitmq service。
 open the **`manifest.yml`** and editor the application name to yours，because the appication can't duplicate。
 
     #cf push {application name}
-    cf push python-demo-try
+    cf push python-demo-postgresql
     
     #get the application environment
-    cf env {application name} > env.json 
+    cf env python-demo-postgresql > env.json 
     
     
 Edit the **publisher.py** `broker、port、username、password` you can find in env.json
@@ -33,16 +33,29 @@ Edit the **publisher.py** `broker、port、username、password` you can find in 
 * username :"VCAP_SERVICES => p-rabbitmq => mqtt => username"
 * password: "VCAP_SERVICES => p-rabbitmq => mqtt => password"
 
-open two terminal
+Open two terminal
     
     #cf logs {application name}
-    cf logs python-demo-try
+    cf logs python-demo-postgresql
 
 .
 
     python publisher.py
 
 ![https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/publish.PNG](https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/publish.PNG)
+
+
+Bind PostgreSQL service instance
+
+    #cf stop application_name
+    cf stop python-demo-postgresql
+    #cf bs {application_name} {service_instance_name} -c '{\"group\":\"group_name\"}' 
+    cf bs python-demo-postgresql postgresql -c '{\"group\":\"groupfamily\"}'
+    #cf start {application_name}
+    cf start python-demo-postgresql
+
+
+
 
 # Step By Step Tutorial
 

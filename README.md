@@ -26,6 +26,9 @@ open **`templates/index.html`**
     #change this **`python-demo-jimmy`** to your **application name**
     var ssoUrl = myUrl.replace('python-demo-jimmy', 'portal-sso');
 
+(In `index.js` the service name need same to WISE-PaaS Service name)
+![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG)
+
 Push application & Bind PostgreSQL service instance
 
     #cf push application_name

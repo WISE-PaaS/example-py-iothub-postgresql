@@ -20,18 +20,32 @@ This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql se
 
 open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
-    #cf push {application name}
-    cf push python-demo-jimmy
-    
-    #get the application environment
-    cf env {application name} > env.json 
 
 open **`templates/index.html`**
     
     #change this **`python-demo-jimmy`** to your **application name**
     var ssoUrl = myUrl.replace('python-demo-jimmy', 'portal-sso');
+
+Push application & Bind PostgreSQL service instance
+
+    #cf push application_name
+    cf push python-demo-postgresql --no-start
     
-Edit the **publisher.py** `broker、port、username、password` you can find in env.json
+    #cf bs {application_name} {service_instance_name} -c '{\"group\":\"group_name\"}' 
+    cf bs python-demo-postgresql postgresql -c '{\"group\":\"groupfamily\"}'
+    
+    #cf start {application_name}
+    cf start python-demo-postgresql
+
+
+
+
+get the application environment
+    
+    #get the application environment
+    cf env {application name} > env.json 
+    
+Edit the **publisher.py** `broker、port、username、password` you can find in **env.json**
 
 * bokrer:"VCAP_SERVICES => p-rabbitmq => externalHosts"
 * port :"VCAP_SERVICES => p-rabbitmq => mqtt => port"
@@ -50,16 +64,7 @@ open two terminal
 ![https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/publish.PNG](https://github.com/WISE-PaaS/example-python-iothub-sso/blob/master/source/publish.PNG)
 
 
-Bind PostgreSQL service instance
 
-    #cf stop application_name
-    cf stop python-demo-postgresql
-    
-    #cf bs {application_name} {service_instance_name} -c '{\"group\":\"group_name\"}' 
-    cf bs python-demo-postgresql postgresql -c '{\"group\":\"groupfamily\"}'
-    
-    #cf start {application_name}
-    cf start python-demo-postgresql
     
 **service_instance_name**
 ![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG)

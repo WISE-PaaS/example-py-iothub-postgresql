@@ -28,7 +28,7 @@ open **`templates/index.html`**
 
 (In `index.js` the service name need same to WISE-PaaS Service name)
 ![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG)
-![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicenamewisepaas.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicenamewisepaas.PNG)
+![Imgur](https://i.imgur.com/6777rmg.png)
 
 Push application & Bind PostgreSQL service instance
 
@@ -43,7 +43,7 @@ Push application & Bind PostgreSQL service instance
 
   
 **service_instance_name**
-![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/SERVICE_LIST.PNG)
+![Imgur](https://i.imgur.com/VVMcYO8.png)
 
 
 

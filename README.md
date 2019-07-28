@@ -8,6 +8,30 @@ This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql se
 
 ## Quick Start
 
+cf-cli
+
+[https://docs.cloudfoundry.org/cf-cli/install-go-cli.html](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html?source=post_page---------------------------)
+
+python3
+
+[https://www.python.org/downloads/](https://www.python.org/downloads/?source=post_page---------------------------)
+
+![](https://cdn-images-1.medium.com/max/2000/1*iJwh3dROjmveF8x1rC6zag.png)
+
+
+python3 package(those library you can try application in local):
+
+    #mqtt
+    pip3 install paho-mqtt
+    #python-backend
+    pip3 install Flask
+    
+    #python postgresql library
+    pip3 install sqlalchemy
+    pip3 install psycopg2
+
+Download this file
+
     git clone this respository
     
     #cf login -skip-ssl-validation -a {api.domain_name}  -u "account" -p "password"

@@ -36,7 +36,7 @@ python3 package(those library you can try application in local):
     
 ## Login to WISE-PaaS
 
-[Imgur](https://i.imgur.com/JNJmxFy.png)
+![Imgur](https://i.imgur.com/JNJmxFy.png)
 
     #cf login -skip-ssl-validation -a {api.domain_name}  -u "account" -p "password"
     

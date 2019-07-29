@@ -45,6 +45,7 @@ python3 package(those library you can try application in local):
 
 open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
+![Imgur](https://i.imgur.com/OQegiAy.png)
 
 open **`templates/index.html`**
     

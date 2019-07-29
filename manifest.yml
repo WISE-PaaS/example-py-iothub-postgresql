@@ -10,6 +10,6 @@ applications:
   buildpack: python_buildpack
   #let the backend application begin。
   command: python index.py
-services:
-- rabbitmq
+# services:
+# - rabbitmq
 

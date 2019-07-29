@@ -56,13 +56,16 @@ open **`templates/index.html`**
 ![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG)
 ![Imgur](https://i.imgur.com/6777rmg.png)
 
-Push application & Bind PostgreSQL service instance
+Push application & Bind PostgreSQL、Rabbitmq service instance
 
     #cf push application_name
     cf push python-demo-postgresql --no-start
     
     #cf bs {application_name} {service_instance_name} -c '{\"group\":\"group_name\"}' 
     cf bs python-demo-postgresql postgresql -c '{\"group\":\"groupfamily\"}'
+    
+    #bind the rabbitmq service
+    cf bs python-demo-postgresql rabbitmq 
     
     #cf start {application_name}
     cf start python-demo-postgresql

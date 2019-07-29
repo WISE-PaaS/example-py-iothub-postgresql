@@ -30,10 +30,11 @@ python3 package(those library you can try application in local):
     pip3 install sqlalchemy
     pip3 install psycopg2
 
-Download this file
+## Download this file
 
     git clone this respository
     
+## Login to WISE-PaaS
     #cf login -skip-ssl-validation -a {api.domain_name}  -u "account" -p "password"
     
     cf login –skip-ssl-validation -a api.wise-paas.io -u xxxxx@advtech.com.tw -p xxxxxx

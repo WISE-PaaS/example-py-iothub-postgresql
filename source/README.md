@@ -85,11 +85,35 @@ Open requirements.txt and add sqlalchemy 、 psycopg2
 
 <iframe src="https://medium.com/media/98c91b4947b649fce7e6d12f43160a53" frameborder=0></iframe>
 
+```
+Flask
+paho-mqtt
+sqlalchemy
+psycopg2
+```
+
 Now，we can add PostgreSQL python code。
 
 open index.py ，add our library，and get application environment in WISE-PaaS，you need to notice the service_name must same as in WISE-PaaS。
 
 <iframe src="https://medium.com/media/30fd8ba82ab5ce4633a547d220d71b95" frameborder=0></iframe>
+
+```py
+#library
+import sqlalchemy
+
+...
+...
+...
+
+#Postgresql
+service_name='postgresql-innoworks' 
+database_database    = vcap_services_js[service_name][0]['credentials']['database']
+database_username  = vcap_services_js[service_name][0]['credentials']['username'].strip()
+database_password  = vcap_services_js[service_name][0]['credentials']['password'].strip()
+database_port = vcap_services_js[service_name][0]['credentials']['port']
+database_host = vcap_services_js[service_name][0]['credentials']['host']
+```
 
 ![service_name](https://cdn-images-1.medium.com/max/2050/1*XXNNAxBurUm_Sp-d9Ps8lQ.png)*service_name*
 
@@ -97,9 +121,67 @@ Add PostgreSQL connection config， POSTGRES save the connection config we defin
 
 <iframe src="https://medium.com/media/59fb1cff17f4cf101f4aaca73f58a4ff" frameborder=0></iframe>
 
+```py
+
+POSTGRES = {
+    'user': username,
+    'password': password,
+    'db': database,
+    'host': database_host,
+    'port': database_port,
+}
+
+
+schema = 'livingroom'
+table = 'temperature'
+group = 'groupfamily'
+engine = sqlalchemy.create_engine('postgresql://%(user)s:\
+%(password)s@%(host)s:%(port)s/%(db)s' % POSTGRES,echo=True) # connect to server
+
+ 
+engine.execute("CREATE SCHEMA IF NOT EXISTS "+schema+" ;") #create schema
+engine.execute("CREATE TABLE IF NOT EXISTS "+schema+"."+table+" \
+        ( id serial, \
+          timestamp timestamp (2) default current_timestamp, \
+          temperature integer, \
+          PRIMARY KEY (id));")
+
+engine.execute("ALTER SCHEMA "+schema+" OWNER TO "+group+" ;")
+engine.execute("ALTER TABLE "+schema+"."+table+" OWNER to "+group+";")
+engine.execute("GRANT ALL ON ALL TABLES IN SCHEMA "+schema+" TO "+group+";")
+engine.execute("GRANT ALL ON ALL SEQUENCES IN SCHEMA "+schema+" TO "+group+";")
+```
+
 and we also create two route to help us debug， /temp(get) can show all the data in Postgresql， /insert(post) can insert fake data。
 
 <iframe src="https://medium.com/media/3307ca84fbf41aeb720f3f83ecdb8460" frameborder=0></iframe>
+
+```py
+
+
+@app.route('/temp',methods=['GET'])
+def temp():
+    
+    numOfTempsReturned = 30
+    
+    res = engine.execute("SELECT * FROM ( SELECT * FROM "+schema+"."+table+" ORDER BY timestamp DESC LIMIT "+str(numOfTempsReturned)+") \
+      AS lastRows ORDER BY timestamp ASC;")
+    output = []
+    for r in res:
+        output.append(r)
+    print(output)
+    return str(output)
+
+@app.route('/insert',methods=['POST'])
+def insert_data():
+    
+    
+    data= 11
+    engine.execute("INSERT INTO "+str(schema)+"."+str(table)+" (temperature) VALUES ("+str(data)+") ",echo=True)
+   
+    
+    return 'insert sueecssful'
+```
 
 Because we already push our application in WISE-PaaS and it still working，so we need to stop it。
 
@@ -141,6 +223,22 @@ If you have pgAdmin you can connect it and check it，use cf env {appilcation na
 Now we want to use rabbit(MQTT) to send data，in** step 2** we already set the rabbitmq sevice，so we just need to use on_message receive our data and sent to PostgreSQL
 
 <iframe src="https://medium.com/media/99a6e79a8542c1b1968ff6c888a79b9b" frameborder=0></iframe>
+
+```py
+...
+
+
+
+def on_message(client, userdata, msg):
+
+ 
+  engine.execute("INSERT INTO "+str(schema)+"."+str(table)+" (temperature) VALUES ("+str(msg.payload.decode())+") ",echo=True)
+  print('insert sueecssful')
+  print(msg.topic+','+msg.payload.decode())
+  
+  
+...
+```
 
 ![](https://cdn-images-1.medium.com/max/2000/1*ii0IszkEeTKo3xqsink7Eg.png)
 

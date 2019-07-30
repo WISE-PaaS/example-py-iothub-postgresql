@@ -83,7 +83,7 @@ The above code is install library in your computer，but we also need to let our
 
 Open requirements.txt and add sqlalchemy 、 psycopg2
 
-[]:<iframe src="https://medium.com/media/98c91b4947b649fce7e6d12f43160a53" frameborder=0></iframe>
+[ ]:<iframe src="https://medium.com/media/98c91b4947b649fce7e6d12f43160a53" frameborder=0></iframe>
 
 ```
 Flask

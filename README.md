@@ -10,13 +10,19 @@ This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql se
 
 ## Quick Start
 
-cf-cli
+#### cf-cli
 
 [https://docs.cloudfoundry.org/cf-cli/install-go-cli.html](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html?source=post_page---------------------------)
 
-python3
+#### python3
 
 [https://www.python.org/downloads/](https://www.python.org/downloads/?source=post_page---------------------------)
+
+#### Postgrsql
+
+You can download pgAdmin so you can see the result in WISE-PaaS Postgresql servince instance
+
+[https://www.postgresql.org/](https://www.postgresql.org/)
 
 ![](https://cdn-images-1.medium.com/max/2000/1*iJwh3dROjmveF8x1rC6zag.png)
 

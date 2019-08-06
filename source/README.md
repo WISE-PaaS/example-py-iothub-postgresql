@@ -23,9 +23,7 @@ python3
 
 ## STEP 2:How to use Rabbitmq(MQTT)
 
-This article only tell you the quick set up，go to download this article
 
-[https://github.com/WISE-PaaS/example-python-iothub-sso](https://github.com/WISE-PaaS/example-python-iothub-sso?source=post_page---------------------------)
 
 First，we need to use cf to login to our WISE-PaaS ，if you can’t login you need to check our your domain is wise-paas.ioor wise-paas.com 。
 

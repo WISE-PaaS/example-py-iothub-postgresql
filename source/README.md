@@ -25,10 +25,11 @@ python3
 
 
 
-First，we need to use cf to login to our WISE-PaaS ，if you can’t login you need to check our your domain is wise-paas.ioor wise-paas.com 。
+First，we need to use cf to login to our WISE-PaaS ，if you can’t login you need to check our your domain is wise-paas.io or wise-paas.com 。
 
-![domain_name](https://cdn-images-1.medium.com/max/2000/1*o_Dd2Nh5wBBhCLt6JTXp_g.png)*domain_name*
-
+![domain_name](https://cdn-images-1.medium.com/max/2000/1*o_Dd2Nh5wBBhCLt6JTXp_g.png)
+    
+    
     #cf login -skip-ssl-validation -a {api.domain_name}  -u "account" -p "password"
 
     cf login –skip-ssl-validation -a api.wise-paas.io -u xxxxx@advtech.com.tw -p xxxxxx

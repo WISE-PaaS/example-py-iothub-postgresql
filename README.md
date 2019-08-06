@@ -231,7 +231,7 @@ This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition�
 
 If you don't want it，you can ignore it。
 ```js 
- #change this **`python-demo-try`** to your **application name**
+#change this **`python-demo-try`** to your **application name**
 var ssoUrl = myUrl.replace('python-demo-try', 'portal-sso');
 ```
 Push application & Bind PostgreSQL、Rabbitmq service instance，The `-c {\"group\":\"groupfamily\"}'` bind the group we define in `index.py`
@@ -253,8 +253,10 @@ Push application & Bind PostgreSQL、Rabbitmq service instance，The `-c {\"grou
 
 get the application environment
 
+```
 #get the application environment
 cf env {application name} > env.json
+```
 
 Edit the **publisher.py** `broker、port、username、password` you can find in **env.json**
 

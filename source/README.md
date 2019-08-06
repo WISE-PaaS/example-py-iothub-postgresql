@@ -3,6 +3,12 @@
 
 This example can show you how to use WISE-PaaS Postgresql and Rabbitmq and we can make a device connection application
 
+[cf-introduce Training Video](https://advantech.wistia.com/medias/ll0ov3ce9e)
+
+[IotHub Training Video](https://advantech.wistia.com/medias/up3q2vxvn3)
+
+
+
 ## STEP 1:Prepare Environment
 
 cf-cli

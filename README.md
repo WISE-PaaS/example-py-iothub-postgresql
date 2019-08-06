@@ -230,10 +230,10 @@ open **`manifest.yml`** and editor the **application name** to yours，because t
 This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
 
 If you don't want it，you can ignore it。
-  
+```js 
  #change this **`python-demo-try`** to your **application name**
 var ssoUrl = myUrl.replace('python-demo-try', 'portal-sso');
-
+```
 Push application & Bind PostgreSQL、Rabbitmq service instance，The `-c {\"group\":\"groupfamily\"}'` bind the group we define in `index.py`
 
     #cf push application_name

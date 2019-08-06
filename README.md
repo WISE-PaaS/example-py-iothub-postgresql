@@ -3,9 +3,9 @@
 
 This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql service。
 
-[cf-introduce](https://advantech.wistia.com/medias/ll0ov3ce9e)
+[cf-introduce Training Video](https://advantech.wistia.com/medias/ll0ov3ce9e)
 
-[IotHub](https://advantech.wistia.com/medias/up3q2vxvn3)
+[IotHub Training Video](https://advantech.wistia.com/medias/up3q2vxvn3)
 
 
 ## Quick Start

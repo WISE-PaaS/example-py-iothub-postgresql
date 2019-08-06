@@ -210,9 +210,29 @@ def insert_data():
 
 ```
 
+#### requirements.txt
+
+Thie file help buildpack download the package for our application in WISE-PaaS。
+
+```
+Flask
+paho-mqtt
+sqlalchemy
+psycopg2
+```
+
 open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate，and you can bind the service rabbitmq in manifest.yml or we will bind it use commit line 。
 
 ![Imgur](https://i.imgur.com/OQegiAy.png)
+
+## SSO(Single Sign On)
+
+This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
+
+If you don't want it，you can ignore it。
+  
+ #change this **`python-demo-try`** to your **application name**
+var ssoUrl = myUrl.replace('python-demo-try', 'portal-sso');
 
 Push application & Bind PostgreSQL、Rabbitmq service instance，The `-c {\"group\":\"groupfamily\"}'` bind the group we define in `index.py`
 

@@ -258,6 +258,8 @@ get the application environment
 cf env {application name} > env.json
 ```
 
+This file can send mqtt message to the topic `/hello` and we send random number you can change it to other thing
+
 Edit the **publisher.py** `broker、port、username、password` you can find in **env.json**
 
 ```py
